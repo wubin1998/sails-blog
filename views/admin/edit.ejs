@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">博客后台管理系统</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/admin">主界面</a></li>
+      <li><a href="/pulish">发布文章</a></li>
+      <li class="active"><a href="/list">文章列表</a></li>
+      <li><a href="/setting">修改密码</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/user/logout">退出</a></li>
+      <!--<li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>-->
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+
+<div class="container">
+  
+  <form action="" id="form_pulish" method="POST" role="form" onsubmit="return false;">
+    <legend>发布文章</legend>
+  
+    <div class="form-group">
+      <label for="">标题</label>
+      <input type="text" class="form-control" id="title" placeholder="请输入标题" required="required">
+    </div>
+    <div class="form-group">
+      <label for="">简介</label>
+      <textarea name="describe" id="describe" class="form-control" placeholder="请输入简介" rows="3" required="required"></textarea>
+      
+    </div>
+    <div class="form-group">
+      <label for="">作者</label>
+      <input type="text" class="form-control" id="author" placeholder="请输入作者" required="required">
+    </div>
+    
+    <div class="form-group">
+      <label for="">内容</label>
+      <div id="content" style="height: 400px;"></div>
+    </div>
+    
+  
+    <button id="update_article" type="submit" class="btn btn-primary">提交</button>
+  </form>
+  
+</div>
+<script>
+  var id = "<%= param %>"
+</script>

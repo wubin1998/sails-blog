@@ -1,0 +1,76 @@
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">博客后台管理系统</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/admin">主界面</a></li>
+      <li><a href="/pulish">发布文章</a></li>
+      <li class="active"><a href="/list">文章列表</a></li>
+      <li><a href="/setting">修改密码</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/user/logout">退出</a></li>
+      <!--<li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>-->
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+
+<div class="container-fluid">
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>文章标题</th>
+        <th>文章作者</th>
+        <th>时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% _.each(data, function(v){ %>
+      <tr>
+        <td><%= v.id %></td>
+        <td><%= v.title %></td>
+        <td><%= v.author %></td>
+        <td><%= Date_Format(v.createdAt) %></td>
+        <td width="150">
+          <a href="/list/edit/<%= v.id %>" class="btn btn-info">修改</a>
+          
+          <button type="button" data-id="<%= v.id %>" class="btn btn-danger js_article_del">删除</button>
+        </td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+  
+  <div class="container">
+    
+    <ul class="pager">
+      <li class="<%= page <= 1 ? 'disabled' : '' %>"><a href="/list?p=<%= parseInt(page) - 1 %>">Previous</a></li>
+      <li class="<%= page == totalPage ? 'disabled' : '' %>"><a href="/list?p=<%= parseInt(page) + 1 %>">Next</a></li>
+    </ul>
+    
+  </div>
+  
+</div>
+

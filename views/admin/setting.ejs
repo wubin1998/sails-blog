@@ -1,0 +1,57 @@
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">博客后台管理系统</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/admin">主界面</a></li>
+      <li><a href="/pulish">发布文章</a></li>
+      <li><a href="/list">文章列表</a></li>
+      <li class="active"><a href="/setting">修改密码</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/user/logout">退出</a></li>
+      <!--<li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>-->
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+<div class="container">
+  
+  <form action="" method="POST" role="form" onsubmit="return false;">
+    <legend>修改密码</legend>
+  
+    <div class="form-group">
+      <label for="">请输入管理员密码</label>
+      <input type="password" class="form-control" id="password" placeholder="password" required="required">
+    </div>
+    <div class="form-group">
+      <label for="">确认管理员密码</label>
+      <input type="password" class="form-control" id="passworded" placeholder="password" required="required">
+    </div>
+    
+  
+    <button type="submit" class="setting_password btn btn-primary">修改</button>
+  </form>
+  
+</div>
+<script>
+var username = "<%= req.session.username %>"
+</script>

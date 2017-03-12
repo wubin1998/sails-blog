@@ -1,0 +1,63 @@
+<header class="homepage">
+  
+  <!--<nav class="navbar navbar-default doc-navbar" role="navigation">
+    
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">首页</a></li>
+        </ul>
+      </div>
+      
+    </div>
+    
+  </nav>-->
+  
+  <div class="container">
+    <div class="start">
+      <h1 class="text-center">Welcome to My Blog!</h1>
+      <p class="text-center">Three passions, simple but overwhelmingly strong, have governed my life: the longing for love, the search for knowledge, and unbearable pity for the suffering of mankind</p>
+    </div>
+  </div>
+  
+  
+  <div class="vertical" style="background:url(<%= bg[0].url %>) center center/cover no-repeat;"></div>  
+</header>
+
+<div class="container">
+  <% _.each(data, function(v){ %>
+  <article class="post-row">
+    <a href="/show/<%= v.id %>">
+      <h2 class="post-title">
+        <%= v.title %>
+      </h2>
+    </a>
+    <p class="post-excerpt">
+      <%= v.describe %>
+    </p>
+    <p class="post-meta">
+      <%= v.author %> <%= Date_Format(v.createdAt) %>
+    </p>
+  </article>
+<% }) %>
+<% if(totalPage > 1) { %>
+  <section>
+    <ul class="pager">
+      <li class="<%= page <= 1 ? 'disabled' : '' %>"><a href="/?p=<%= parseInt(page) - 1 %>">Previous</a></li>
+      <li class="<%= page == totalPage ? 'disabled' : '' %>"><a href="/?p=<%= parseInt(page) + 1 %>">Next</a></li>
+    </ul>
+  </section>
+<% } %>
+</div>
+<footer class="site-footer">
+  &copy; 2017 Wu Bin
+</footer>

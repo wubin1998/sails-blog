@@ -1,7 +1,2 @@
 language: node_js
 
-before_install:
-  - echo "==================[before_install]============="
-
- script:
-  - echo "==================[script]==================="
